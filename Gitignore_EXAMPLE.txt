@@ -1,0 +1,97 @@
+ # Если в шаблоне где-то кроме как в конце есть "/" gitigonre ищет от корня,
+ # если нет - то везде 
+
+
+Thumbs.db
+# path/to/anywhere/Thumbs.db
+.DS_Store
+# any/folder/.DS_Store
+
+# LOgs
+*.log
+# anywhere/my.log, NOT my.logs, my.log.tmp
+
+# Compiled files
+*.class
+*.py[co]
+# same as: *.pyc OR *.pyo, NOT *.pyco
+
+migrate-201[5-7]*
+# anywhere/migrate-2015, migrate-20170101.db, NOT migrate-2018...
+
+*.py?
+# anywhere/*.py<any char>, *.pyc OR *.pyo OR *.pyd, NOT *.py
+
+# slash at the end means a folder
+build/
+# any folder "build", NOT file "build"
+
+
+# PATH-AWARE MODE
+/build/
+# exactly one build folder in root
+
+
+# in slash mode match relative to .gitignore
+secret/key
+# secret/key, NOT docs/secret/key
+
+/*.txt
+#my.txt, NOT somwhere/my.txt
+
+# wildcard matches within a path segment
+var/www*/tmp
+# var/www/tmp
+# var/www-home/tmp
+# NOT var/www/info/tmp
+
+# ...or replaces a path segment
+users/*/private
+# users/john/private
+# users/alice/private
+# NOT 
+# users/private
+# users/john/project/private
+
+# double wildcard ** replaces any number of path segments
+**/*.log
+# same as *.log
+
+**/app/cache
+# shop/app/cache
+# main/front/app/cache
+
+docs/**/*.html
+# docs/module/generated.html
+# docs/general/info/perfomance.html
+# NOT
+# subdir/docs/my.html
+
+# ** can only be used as **/...
+# or .../**/...
+# or .../**
+
+.*
+!.gitattributes
+!.gitignore
+# igonre everything starting from dot
+# except gitattributes and gitignore
+
+# DOESN'T WORK
+# because install/ ignores directory, making its content unknown to git
+# so we can't "unignore" anything inside it
+/install/
+!install/packages.xml
+
+# INSTEAD
+# ignore not install/, but each item of its content
+# this way we can "unignore" it
+/install/*
+!install/packages.xml
+
+
+
+
+
+
+
