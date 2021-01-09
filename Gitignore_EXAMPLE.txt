@@ -7,7 +7,7 @@ Thumbs.db
 .DS_Store
 # any/folder/.DS_Store
 
-# LOgs
+# Logs
 *.log
 # anywhere/my.log, NOT my.logs, my.log.tmp
 
